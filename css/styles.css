@@ -4,12 +4,12 @@ button {
   border: 5px solid black;
 }
 
-li {
-  font-size: 24px;
-}
-
 img {
   width: 100%;
+}
+
+h3 {
+  font-size: xx-large;
 }
 
 .header-font {
@@ -76,17 +76,16 @@ img {
 
 .backscreen-left {
   width: 482px;
-  height: 568px;
+  height: 550px;
 }
 
 .view-back-left {
   width: 456px;
-  height: 539px;
+  height: 525px;
 }
 
 .pokemon-view {
   width: 437px;
-  height: 517px;
 }
 
 .rounded-border {
@@ -100,7 +99,7 @@ img {
 
 .list-view {
   width: 387px;
-  height: 410px;
+  height: 400px;
 }
 
 .circle {
@@ -144,12 +143,33 @@ img {
   margin-left: 15px;
 }
 
-.pokemon-container {
-  width: 275px;
-  height: 275px;
+.poke-image {
+  width: 200px;
+  height: 200px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  width: 50%;
+}
+
+.list-item:hover {
+  background-color: cornflowerblue;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: ivory;
 }
 
 @media screen and (max-width: 600px) {
+  h3 {
+    font-size: larger;
+  }
+
   .container {
     margin: 0;
   }
@@ -193,6 +213,11 @@ img {
     height: 250px;
   }
 
+  .poke-image {
+    width: 75px;
+    height: 75px;
+  }
+
   .view-back-right {
     width: 270px;
     height: 218px;
@@ -201,5 +226,9 @@ img {
   .list-view {
     width: 256px;
     height: 204px;
+  }
+
+  .list-item {
+    height: 20px;
   }
 }

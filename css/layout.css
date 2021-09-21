@@ -29,3 +29,7 @@
 .space-btwn {
   justify-content: space-between;
 }
+
+.wrap {
+  flex-wrap: wrap;
+}
