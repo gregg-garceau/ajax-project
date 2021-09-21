@@ -25,3 +25,7 @@
 .flex {
   display: flex;
 }
+
+.space-btwn {
+  justify-content: space-between;
+}
