@@ -1,0 +1,35 @@
+.container {
+  margin: 20px 183px;
+}
+
+.row {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.jc-cent {
+  justify-content: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.column-flex {
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-btwn {
+  justify-content: space-between;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
