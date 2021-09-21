@@ -135,3 +135,31 @@ button {
 .next-btn {
   margin-left: 15px;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    margin: 0;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  .pokedex-top {
+    width: 100%;
+  }
+
+  .pokedex-header {
+    font-size: 24px;
+    -webkit-text-stroke: 1px black;
+  }
+
+  .gen-header {
+    font-size: 16px;
+  }
+
+  .flex {
+    width: 50%;
+    flex-wrap: wrap;
+  }
+}
