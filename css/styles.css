@@ -1,0 +1,80 @@
+.header-font {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+}
+
+.gen-header {
+  font-size: 24px;
+}
+
+.body-font {
+  font-family: 'Odibee Sans', cursive, sans-serif;
+}
+
+.pokedex-header {
+  color: #ffcc01;
+  font-size: 64px;
+  -webkit-text-stroke: 3px black;
+}
+
+.pokedex-top {
+  width: 585px;
+  height: 112px;
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+  margin-top: 30px;
+}
+
+.pokedex-left {
+  width: 585px;
+  height: 648px;
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+  border-right: 2.5px solid black;
+  border-top: 5px solid black;
+}
+
+.pokedex-right {
+  width: 489px;
+  height: 648px;
+  border-left: 2.5px solid black;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+}
+
+.pokedex-color {
+  background-color: red;
+}
+
+.backscreen-color {
+  background-color: #e4e5e3;
+}
+
+.black-background {
+  background-color: black;
+}
+
+.viewscreen-color {
+  background-color: #f0e8e8;
+}
+
+.backscreen-left {
+  width: 482px;
+  height: 568px;
+}
+
+.view-back-left {
+  width: 456px;
+  height: 539px;
+}
+
+.pokemon-view {
+  width: 437px;
+  height: 517px;
+}
+
+.rounded-border {
+  border-radius: 25px;
+}
