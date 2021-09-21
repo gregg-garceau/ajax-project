@@ -1,5 +1,5 @@
 .container {
-  margin: 10px 183px;
+  margin: 20px 183px;
 }
 
 .row {
@@ -16,4 +16,8 @@
 
 .space-around {
   justify-content: space-around;
+}
+
+.column-flex {
+  flex-direction: column;
 }
