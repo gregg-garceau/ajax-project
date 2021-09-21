@@ -78,3 +78,13 @@
 .rounded-border {
   border-radius: 25px;
 }
+
+.view-back-right {
+  width: 408px;
+  height: 432px;
+}
+
+.list-view {
+  width: 387px;
+  height: 410px;
+}
