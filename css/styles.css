@@ -88,3 +88,32 @@
   width: 387px;
   height: 410px;
 }
+
+.circle {
+  border-radius: 50%;
+}
+
+.main-dot {
+  background-color: #3b4cca;
+  height: 75px;
+  width: 75px;
+  margin: 10px 10px;
+}
+
+.sub-dots {
+  height: 24px;
+  width: 24px;
+  margin: 5px 5px;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-green {
+  background-color: green;
+}
