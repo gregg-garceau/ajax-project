@@ -42,4 +42,19 @@ function pokeList(url) {
   xhr.send();
 }
 
+function prevClick(event) {
+  if (prevUrl) {
+    pokeList(prevUrl);
+  }
+}
+
+function nextClick(event) {
+  if (nextUrl) {
+    pokeList(nextUrl);
+  }
+}
+
+$prevButton.addEventListener('click', prevClick);
+$nextButton.addEventListener('click', nextClick);
+
 pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
