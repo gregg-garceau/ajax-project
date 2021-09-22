@@ -149,11 +149,6 @@ body {
   margin-left: 15px;
 }
 
-.poke-image {
-  width: 200px;
-  height: 200px;
-}
-
 .list-item {
   display: flex;
   align-items: center;
@@ -240,6 +235,21 @@ body {
   color: #a8b820;
 }
 
+.poke-type-one,
+.poke-type-two {
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-shadow:
+    -1px -1px 0 #000,
+    0   -1px 0 #000,
+    1px -1px 0 #000,
+    1px  0   0 #000,
+    1px  1px 0 #000,
+    0    1px 0 #000,
+    -1px  1px 0 #000,
+    -1px  0   0 #000;
+}
+
 button:hover {
   cursor: pointer;
   background-color: ivory;
@@ -293,6 +303,8 @@ button:hover {
     height: 250px;
   }
 
+  .poke-image-back,
+  .poke-image-shiny,
   .poke-image {
     width: 75px;
     height: 75px;
@@ -311,5 +323,10 @@ button:hover {
   .list-item {
     height: 20px;
     font-size: large;
+  }
+
+  .poke-type-one,
+  .poke-type-two {
+    font-size: larger;
   }
 }
