@@ -154,6 +154,8 @@ h3 {
   cursor: pointer;
   height: 40px;
   width: 50%;
+  padding-left: 15px;
+  font-size: x-large;
 }
 
 .list-item:hover {
@@ -230,5 +232,6 @@ button:hover {
 
   .list-item {
     height: 20px;
+    font-size: large;
   }
 }
