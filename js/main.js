@@ -42,6 +42,18 @@ function pokeList(url) {
   xhr.send();
 }
 
+function prevClick(event) {
+  if (prevUrl) {
+    pokeList(prevUrl);
+  }
+}
+
+function nextClick(event) {
+  if (nextUrl) {
+    pokeList(nextUrl);
+  }
+}
+
 $prevButton.addEventListener('click', prevClick);
 $nextButton.addEventListener('click', nextClick);
 
