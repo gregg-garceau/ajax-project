@@ -1,6 +1,8 @@
 var $pokeName = document.querySelector('.poke-name');
 var $pokeId = document.querySelector('.poke-id');
 var $pokeImage = document.querySelector('.poke-image');
+var $pokeImageBack = document.querySelector('.poke-image-back');
+var $shinyPokeImage = document.querySelector('.poke-image-shiny');
 var $pokeWeight = document.querySelector('.poke-weight');
 var $pokeHeight = document.querySelector('.poke-height');
 var $pokeTypeOne = document.querySelector('.poke-type-one');
@@ -11,8 +13,26 @@ var $nextButton = document.querySelector('.next-btn');
 var prevUrl = null;
 var nextUrl = null;
 
+var colorTypes = [
+  'normal', 'fighting', 'flying',
+  'poison', 'ground', 'rock',
+  'bug', 'ghost', 'steel',
+  'fire', 'water', 'grass',
+  'electric', 'psychic', 'ice',
+  'dragon', 'dark', 'fairy'
+];
+
 function capitalize(str) {
   return str[0].toUpperCase() + str.substr(1);
+}
+
+function clearColorType() {
+  for (var color of colorTypes) {
+    $pokeTypeOne.classList.remove(color);
+    $pokeTypeTwo.classList.remove(color);
+    $pokeTypeOne.textContent = '';
+    $pokeTypeTwo.textContent = '';
+  }
 }
 
 function showPokemon(id) {
@@ -21,6 +41,26 @@ function showPokemon(id) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     var currentPokemon = xhr.response;
+
+    clearColorType();
+
+    $pokeName.textContent = capitalize(currentPokemon.name);
+    $pokeId.textContent = '#' + currentPokemon.id.toString().padStart(3, '0');
+    $pokeImage.src = currentPokemon.sprites.front_default;
+    $pokeImageBack.src = currentPokemon.sprites.back_default;
+    $shinyPokeImage.src = currentPokemon.sprites.front_shiny;
+    $pokeWeight.textContent = currentPokemon.weight;
+    $pokeHeight.textContent = currentPokemon.height;
+
+    var pokeTypeOne = currentPokemon.types[0].type.name;
+    $pokeTypeOne.textContent = capitalize(pokeTypeOne);
+    $pokeTypeOne.classList.add(pokeTypeOne);
+    var pokeTypeTwo = currentPokemon.types[1].type.name;
+    if (pokeTypeTwo) {
+      $pokeTypeTwo.textContent = capitalize(pokeTypeTwo);
+      $pokeTypeTwo.classList.add(pokeTypeTwo);
+    }
+
   });
   xhr.send();
 }
@@ -70,3 +110,4 @@ $prevButton.addEventListener('click', prevClick);
 $nextButton.addEventListener('click', nextClick);
 
 pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
+showPokemon(1);
