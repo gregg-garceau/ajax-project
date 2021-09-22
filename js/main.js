@@ -15,6 +15,16 @@ function capitalize(str) {
   return str[0].toUpperCase() + str.substr(1);
 }
 
+function showPokemon(id) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + id);
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    var currentPokemon = xhr.response;
+  });
+  xhr.send();
+}
+
 function pokeList(url) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
@@ -51,6 +61,8 @@ function prevClick(event) {
 function nextClick(event) {
   if (nextUrl) {
     pokeList(nextUrl);
+  } else {
+    pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
   }
 }
 
