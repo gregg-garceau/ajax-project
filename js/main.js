@@ -52,15 +52,16 @@ function showPokemon(id) {
     $pokeWeight.textContent = currentPokemon.weight;
     $pokeHeight.textContent = currentPokemon.height;
 
-    var pokeTypeOne = currentPokemon.types[0].type.name;
+    var types = currentPokemon.types;
+    var pokeTypeOne = types[0].type.name;
     $pokeTypeOne.textContent = capitalize(pokeTypeOne);
     $pokeTypeOne.classList.add(pokeTypeOne);
-    var pokeTypeTwo = currentPokemon.types[1].type.name;
-    if (pokeTypeTwo) {
+
+    if (types.length === 2) {
+      var pokeTypeTwo = types[1].type.name;
       $pokeTypeTwo.textContent = capitalize(pokeTypeTwo);
       $pokeTypeTwo.classList.add(pokeTypeTwo);
     }
-
   });
   xhr.send();
 }
