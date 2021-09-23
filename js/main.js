@@ -1,7 +1,6 @@
 var $pokeName = document.querySelector('.poke-name');
 var $pokeId = document.querySelector('.poke-id');
 var $pokeImage = document.querySelector('.poke-image');
-var $pokeImageBack = document.querySelector('.poke-image-back');
 var $shinyPokeImage = document.querySelector('.poke-image-shiny');
 var $pokeWeight = document.querySelector('.poke-weight');
 var $pokeHeight = document.querySelector('.poke-height');
@@ -50,7 +49,6 @@ function showPokemon(id) {
     $pokeName.textContent = capitalize(currentPokemon.name);
     $pokeId.textContent = '#' + currentPokemon.id.toString().padStart(3, '0');
     $pokeImage.src = currentPokemon.sprites.front_default;
-    $pokeImageBack.src = currentPokemon.sprites.back_default;
     $shinyPokeImage.src = currentPokemon.sprites.front_shiny;
     $pokeWeight.textContent = currentPokemon.weight;
     $pokeHeight.textContent = currentPokemon.height;
@@ -77,19 +75,22 @@ function pokeList(url) {
     var pokeResults = xhr.response.results;
     prevUrl = xhr.response.previous;
     nextUrl = xhr.response.next;
+    var offsetHundred = nextUrl.slice(41, 44);
+    var offsetThousand = nextUrl.slice(41, 45);
+    offsetHundred = parseInt(offsetHundred);
+    offsetThousand = parseInt(offsetThousand);
+    if (offsetThousand < 1000 && offsetHundred < 902) {
+      for (let i = 0; i < $pokeList.length; i++) {
+        var currentPokeList = $pokeList[i];
+        var pokeData = pokeResults[i];
 
-    for (let i = 0; i < $pokeList.length; i++) {
-      var currentPokeList = $pokeList[i];
-      var pokeData = pokeResults[i];
-
-      if (pokeData) {
-        var pokeName = pokeData.name;
-        var pokeUrl = pokeData.url;
-        var splitUrl = pokeUrl.split('/');
-        var pokeId = splitUrl[splitUrl.length - 2];
-        currentPokeList.textContent = pokeId + '. ' + capitalize(pokeName);
-      } else {
-        currentPokeList.textContent = '';
+        if (pokeData) {
+          var pokeName = pokeData.name;
+          var pokeUrl = pokeData.url;
+          var splitUrl = pokeUrl.split('/');
+          var pokeId = splitUrl[splitUrl.length - 2];
+          currentPokeList.textContent = pokeId + '. ' + capitalize(pokeName);
+        }
       }
     }
   });
@@ -105,8 +106,6 @@ function prevClick(event) {
 function nextClick(event) {
   if (nextUrl) {
     pokeList(nextUrl);
-  } else {
-    pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
   }
 }
 
