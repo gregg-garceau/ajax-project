@@ -17,6 +17,10 @@ body {
   background-size: cover;
 }
 
+.hidden {
+  display: none;
+}
+
 .header-font {
   font-family: 'Press Start 2P', cursive, sans-serif;
 }
@@ -112,14 +116,33 @@ body {
   border-radius: 50px;
 }
 
+.on-button {
+  background-color: blue;
+}
+
+.on-button:active {
+  background-color: darkblue;
+}
+
+.off-button {
+  background-color: purple;
+}
+
+.off-button:active {
+  background-color: rgb(80, 1, 80);
+}
+
 .main-dot {
-  background-color: #3b4cca;
+  cursor: pointer;
+  color: white;
+  border: 3px solid black;
   height: 75px;
   width: 75px;
   margin: 10px 10px;
 }
 
 .sub-dots {
+  border: 3px solid black;
   height: 24px;
   width: 24px;
   margin: 5px 5px;
@@ -253,6 +276,10 @@ body {
 button:hover {
   cursor: pointer;
   background-color: ivory;
+}
+
+button:active {
+  background-color: darkgrey;
 }
 
 @media screen and (max-width: 600px) {

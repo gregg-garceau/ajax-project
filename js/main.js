@@ -10,6 +10,9 @@ var $pokeTypeTwo = document.querySelector('.poke-type-two');
 var $pokeList = document.querySelectorAll('.list-item');
 var $prevButton = document.querySelector('.prev-btn');
 var $nextButton = document.querySelector('.next-btn');
+var $onButton = document.querySelector('.on-button');
+var $offButton = document.querySelector('.off-button');
+var $viewScreen = document.querySelector('.pokemon-view');
 var prevUrl = null;
 var nextUrl = null;
 
@@ -109,6 +112,14 @@ function nextClick(event) {
 
 $prevButton.addEventListener('click', prevClick);
 $nextButton.addEventListener('click', nextClick);
+
+$onButton.addEventListener('click', function (event) {
+  $viewScreen.classList.remove('hidden');
+});
+
+$offButton.addEventListener('click', function (event) {
+  $viewScreen.classList.add('hidden');
+});
 
 pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
 showPokemon(1);
