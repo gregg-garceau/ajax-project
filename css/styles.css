@@ -179,7 +179,7 @@ body {
   height: 40px;
   width: 50%;
   padding-left: 15px;
-  font-size: x-large;
+  font-size: 20px;
 }
 
 .list-item:hover {
@@ -348,8 +348,9 @@ button:active {
   }
 
   .list-item {
-    height: 20px;
-    font-size: large;
+    height: 20.4px;
+    font-size: 12px;
+    padding-left: 2px;
   }
 
   .poke-type-one,

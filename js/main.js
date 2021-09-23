@@ -16,6 +16,10 @@ var $viewScreen = document.querySelector('.pokemon-view');
 var prevUrl = null;
 var nextUrl = null;
 
+function capitalize(str) {
+  return str[0].toUpperCase() + str.substr(1);
+}
+
 var colorTypes = [
   'normal', 'fighting', 'flying',
   'poison', 'ground', 'rock',
@@ -24,10 +28,6 @@ var colorTypes = [
   'electric', 'psychic', 'ice',
   'dragon', 'dark', 'fairy'
 ];
-
-function capitalize(str) {
-  return str[0].toUpperCase() + str.substr(1);
-}
 
 function clearColorType() {
   for (var color of colorTypes) {
@@ -108,6 +108,18 @@ function nextClick(event) {
   } else {
     pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
   }
+}
+
+function listClick(event) {
+  var targetItem = event.target;
+  if (targetItem.textContent) {
+    var targetId = targetItem.textContent.split('.')[0];
+  }
+  showPokemon(targetId);
+}
+
+for (var listItem of $pokeList) {
+  listItem.addEventListener('click', listClick);
 }
 
 $prevButton.addEventListener('click', prevClick);
