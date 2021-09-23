@@ -96,6 +96,7 @@ body {
 
 .pokemon-view {
   width: 437px;
+  height: 500px;
 }
 
 .rounded-border {
@@ -184,6 +185,11 @@ body {
 
 .list-item:hover {
   background-color: cornflowerblue;
+}
+
+.list-item:active {
+  background-color: rgb(0, 81, 231);
+  color: white;
 }
 
 .normal {
