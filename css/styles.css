@@ -342,7 +342,7 @@ button:active {
 
 @media screen and (max-width: 600px) {
   h3 {
-    font-size: 22px;
+    font-size: 20px;
     margin: 7px 0;
   }
 
@@ -410,6 +410,14 @@ button:active {
 
   .poke-type-one,
   .poke-type-two {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .prev-btn {
+    margin-right: 5px;
+  }
+
+  .next-btn {
+    margin-left: 5px;
   }
 }
