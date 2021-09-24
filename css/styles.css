@@ -166,10 +166,12 @@ body {
 
 .prev-btn {
   margin-right: 15px;
+  background-color: #e4e5e3;
 }
 
 .next-btn {
   margin-left: 15px;
+  background-color: #e4e5e3;
 }
 
 .list-item {
