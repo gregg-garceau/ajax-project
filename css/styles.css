@@ -166,11 +166,16 @@ body {
 
 .prev-btn {
   margin-right: 15px;
-  background-color: #e4e5e3;
 }
 
 .next-btn {
   margin-left: 15px;
+}
+
+.prev-btn,
+.next-btn {
+  padding: 0;
+  text-align: center;
   background-color: #e4e5e3;
 }
 
@@ -409,10 +414,10 @@ button:active {
   }
 
   .prev-btn {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   .next-btn {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 }
