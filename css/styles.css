@@ -277,7 +277,7 @@ header {
 .poke-type-one,
 .poke-type-two {
   font-size: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   -webkit-text-stroke: 1px black;
 }
 
