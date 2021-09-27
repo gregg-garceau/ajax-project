@@ -471,7 +471,7 @@ button:active {
 
   .nav-title {
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 16px;
     -webkit-text-stroke: 1px black;
   }
 }
