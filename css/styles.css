@@ -18,6 +18,18 @@ body {
   background-size: cover;
 }
 
+nav {
+  background-color: red;
+  color: #ffcc01;
+  -webkit-box-shadow: 0 12px 10px -10px rgb(0, 0, 0);
+  -moz-box-shadow: 0 12px 10px -10px rgb(0, 0, 0);
+  box-shadow: 0 12px 10px -10px rgb(0, 0, 0);
+}
+
+header {
+  margin-bottom: 50px;
+}
+
 .hidden {
   display: none;
 }
@@ -32,14 +44,6 @@ body {
 
 .body-font {
   font-family: 'Odibee Sans', cursive, sans-serif;
-}
-
-.pokedex-header {
-  color: #ffcc01;
-  font-size: 64px;
-  -webkit-text-stroke: 3px black;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .pokedex-top {
@@ -277,6 +281,35 @@ body {
   -webkit-text-stroke: 1px black;
 }
 
+.footer,
+.navbar {
+  width: 100%;
+}
+
+.nav-title {
+  letter-spacing: 2px;
+  font-size: 30px;
+  -webkit-text-stroke: 1px black;
+}
+
+.nav-box {
+  height: 50px;
+}
+
+.pokemon-search {
+  width: 300px;
+  height: 25px;
+  font-size: 20px;
+}
+
+.footer {
+  margin-top: 50px;
+}
+
+.fab {
+  padding: 5px;
+}
+
 button:hover {
   cursor: pointer;
   background-color: ivory;
@@ -345,6 +378,12 @@ button:active {
     width: 408px;
     height: 418px;
   }
+
+  .nav-title {
+    letter-spacing: 2px;
+    font-size: 25px;
+    -webkit-text-stroke: 1px black;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -365,11 +404,6 @@ button:active {
   .pokedex-top {
     width: 90%;
     flex-direction: row;
-  }
-
-  .pokedex-header {
-    font-size: 50px;
-    -webkit-text-stroke: 1px black;
   }
 
   .pokedex-left,
@@ -427,5 +461,17 @@ button:active {
 
   .next-btn {
     margin-left: 10px;
+  }
+
+  .pokemon-search {
+    width: 200px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .nav-title {
+    letter-spacing: 1px;
+    font-size: 20px;
+    -webkit-text-stroke: 1px black;
   }
 }

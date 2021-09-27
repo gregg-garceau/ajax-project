@@ -12,6 +12,7 @@ var $nextButton = document.querySelector('.next-btn');
 var $onButton = document.querySelector('.on-button');
 var $offButton = document.querySelector('.off-button');
 var $viewScreen = document.querySelector('.pokemon-view');
+var $searchbar = document.querySelector('.pokemon-search');
 var prevUrl = null;
 var nextUrl = null;
 
@@ -130,6 +131,19 @@ $onButton.addEventListener('click', function (event) {
 
 $offButton.addEventListener('click', function (event) {
   $viewScreen.classList.add('hidden');
+});
+
+$searchbar.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    if (!$searchbar.value || $searchbar.value === ' ') {
+      return;
+    }
+
+    if ($searchbar.value) {
+      var pokemonSearch = $searchbar.value.toLowerCase();
+      showPokemon(pokemonSearch);
+    }
+  }
 });
 
 pokeList('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
