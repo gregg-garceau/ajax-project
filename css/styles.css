@@ -35,11 +35,7 @@ header {
 }
 
 .header-font {
-  font-family: 'Press Start 2P', cursive, sans-serif;
-}
-
-.gen-header {
-  font-size: 24px;
+  font-family: 'Anton', sans-serif;
 }
 
 .body-font {
@@ -288,12 +284,12 @@ header {
 
 .nav-title {
   letter-spacing: 2px;
-  font-size: 30px;
+  font-size: 50px;
   -webkit-text-stroke: 1px black;
 }
 
 .nav-box {
-  height: 50px;
+  height: 75px;
 }
 
 .pokemon-search {
@@ -381,7 +377,7 @@ button:active {
 
   .nav-title {
     letter-spacing: 2px;
-    font-size: 25px;
+    font-size: 35px;
     -webkit-text-stroke: 1px black;
   }
 }
@@ -471,7 +467,7 @@ button:active {
 
   .nav-title {
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 25px;
     -webkit-text-stroke: 1px black;
   }
 }
