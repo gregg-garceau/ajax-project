@@ -461,4 +461,8 @@ button:active {
   .next-btn {
     margin-left: 10px;
   }
+
+  .nav-title {
+    font-size: 40px;
+  }
 }
