@@ -27,7 +27,7 @@ nav {
 }
 
 header {
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .hidden {
@@ -313,6 +313,11 @@ header {
   margin: 0;
   color: white;
   -webkit-text-stroke: 0.5px black;
+  font-size: 40px;
+}
+
+.search-box {
+  margin-top: 15px;
 }
 
 button:hover {
