@@ -13,11 +13,29 @@ var $onButton = document.querySelector('.on-button');
 var $offButton = document.querySelector('.off-button');
 var $viewScreen = document.querySelector('.pokemon-view');
 var $searchbar = document.querySelector('.pokemon-search');
+var $pokeLoad = document.querySelector('.poke-load');
+var $listLoad = document.querySelector('.list-load');
 var prevUrl = null;
 var nextUrl = null;
 
 function capitalize(str) {
   return str[0].toUpperCase() + str.substr(1);
+}
+
+function openModalPoke() {
+  $pokeLoad.classList.remove('hidden');
+}
+
+function closeModalPoke() {
+  $pokeLoad.classList.add('hidden');
+}
+
+function openListLoad() {
+  $listLoad.classList.remove('hidden');
+}
+
+function closeListLoad() {
+  $listLoad.classList.add('hidden');
 }
 
 var colorTypes = [
@@ -39,12 +57,13 @@ function clearColorType() {
 }
 
 function showPokemon(id) {
+  openModalPoke();
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     var currentPokemon = xhr.response;
-
+    closeModalPoke();
     clearColorType();
 
     $pokeName.textContent = capitalize(currentPokemon.name);
@@ -69,10 +88,12 @@ function showPokemon(id) {
 }
 
 function pokeList(url) {
+  openListLoad();
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    closeListLoad();
     var pokeResults = xhr.response.results;
     prevUrl = xhr.response.previous;
     nextUrl = xhr.response.next;
