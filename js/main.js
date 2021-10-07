@@ -1,44 +1,44 @@
-var $pokeName = document.querySelector('.poke-name');
-var $pokeId = document.querySelector('.poke-id');
-var $pokeImage = document.querySelector('.poke-image');
-var $shinyPokeImage = document.querySelector('.poke-image-shiny');
-var $pokeWeight = document.querySelector('.poke-weight');
-var $pokeHeight = document.querySelector('.poke-height');
-var $pokeTypeOne = document.querySelector('.poke-type-one');
-var $pokeTypeTwo = document.querySelector('.poke-type-two');
-var $pokeList = document.querySelectorAll('.list-item');
-var $prevButton = document.querySelector('.prev-btn');
-var $nextButton = document.querySelector('.next-btn');
-var $onButton = document.querySelector('.on-button');
-var $offButton = document.querySelector('.off-button');
-var $viewScreen = document.querySelector('.pokemon-view');
-var $searchbar = document.querySelector('.pokemon-search');
-var $pokeLoad = document.querySelector('.poke-load');
-var $listLoad = document.querySelector('.list-load');
-var prevUrl = null;
-var nextUrl = null;
+const $pokeName = document.querySelector('.poke-name');
+const $pokeId = document.querySelector('.poke-id');
+const $pokeImage = document.querySelector('.poke-image');
+const $shinyPokeImage = document.querySelector('.poke-image-shiny');
+const $pokeWeight = document.querySelector('.poke-weight');
+const $pokeHeight = document.querySelector('.poke-height');
+const $pokeTypeOne = document.querySelector('.poke-type-one');
+const $pokeTypeTwo = document.querySelector('.poke-type-two');
+const $pokeList = document.querySelectorAll('.list-item');
+const $prevButton = document.querySelector('.prev-btn');
+const $nextButton = document.querySelector('.next-btn');
+const $onButton = document.querySelector('.on-button');
+const $offButton = document.querySelector('.off-button');
+const $viewScreen = document.querySelector('.pokemon-view');
+const $searchbar = document.querySelector('.pokemon-search');
+const $pokeLoad = document.querySelector('.poke-load');
+const $listLoad = document.querySelector('.list-load');
+let prevUrl = null;
+let nextUrl = null;
 
-function capitalize(str) {
+const capitalize = str => {
   return str[0].toUpperCase() + str.substr(1);
-}
+};
 
-function openModalPoke() {
+const openModalPoke = () => {
   $pokeLoad.classList.remove('hidden');
-}
+};
 
-function closeModalPoke() {
+const closeModalPoke = () => {
   $pokeLoad.classList.add('hidden');
-}
+};
 
-function openListLoad() {
+const openListLoad = () => {
   $listLoad.classList.remove('hidden');
-}
+};
 
-function closeListLoad() {
+const closeListLoad = () => {
   $listLoad.classList.add('hidden');
-}
+};
 
-var colorTypes = [
+const colorTypes = [
   'normal', 'fighting', 'flying',
   'poison', 'ground', 'rock',
   'bug', 'ghost', 'steel',
@@ -47,22 +47,22 @@ var colorTypes = [
   'dragon', 'dark', 'fairy'
 ];
 
-function clearColorType() {
-  for (var color of colorTypes) {
+const clearColorType = () => {
+  for (const color of colorTypes) {
     $pokeTypeOne.classList.remove(color);
     $pokeTypeTwo.classList.remove(color);
     $pokeTypeOne.textContent = '';
     $pokeTypeTwo.textContent = '';
   }
-}
+};
 
-function showPokemon(id) {
+const showPokemon = id => {
   openModalPoke();
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + id);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    var currentPokemon = xhr.response;
+    const currentPokemon = xhr.response;
     closeModalPoke();
     clearColorType();
 
@@ -73,73 +73,73 @@ function showPokemon(id) {
     $pokeWeight.textContent = currentPokemon.weight;
     $pokeHeight.textContent = currentPokemon.height;
 
-    var types = currentPokemon.types;
-    var pokeTypeOne = types[0].type.name;
+    const types = currentPokemon.types;
+    const pokeTypeOne = types[0].type.name;
     $pokeTypeOne.textContent = capitalize(pokeTypeOne);
     $pokeTypeOne.classList.add(pokeTypeOne);
 
     if (types.length === 2) {
-      var pokeTypeTwo = types[1].type.name;
+      const pokeTypeTwo = types[1].type.name;
       $pokeTypeTwo.textContent = capitalize(pokeTypeTwo);
       $pokeTypeTwo.classList.add(pokeTypeTwo);
     }
   });
   xhr.send();
-}
+};
 
-function pokeList(url) {
+const pokeList = url => {
   openListLoad();
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     closeListLoad();
-    var pokeResults = xhr.response.results;
+    const pokeResults = xhr.response.results;
     prevUrl = xhr.response.previous;
     nextUrl = xhr.response.next;
-    var offsetHundred = nextUrl.slice(41, 44);
-    var offsetThousand = nextUrl.slice(41, 45);
+    let offsetHundred = nextUrl.slice(41, 44);
+    let offsetThousand = nextUrl.slice(41, 45);
     offsetHundred = parseInt(offsetHundred);
     offsetThousand = parseInt(offsetThousand);
     if (offsetThousand < 1000 && offsetHundred < 902) {
       for (let i = 0; i < $pokeList.length; i++) {
-        var currentPokeList = $pokeList[i];
-        var pokeData = pokeResults[i];
+        const currentPokeList = $pokeList[i];
+        const pokeData = pokeResults[i];
 
         if (pokeData) {
-          var pokeName = pokeData.name;
-          var pokeUrl = pokeData.url;
-          var splitUrl = pokeUrl.split('/');
-          var pokeId = splitUrl[splitUrl.length - 2];
+          const pokeName = pokeData.name;
+          const pokeUrl = pokeData.url;
+          const splitUrl = pokeUrl.split('/');
+          const pokeId = splitUrl[splitUrl.length - 2];
           currentPokeList.textContent = pokeId + '. ' + capitalize(pokeName);
         }
       }
     }
   });
   xhr.send();
-}
+};
 
-function prevClick(event) {
+const prevClick = event => {
   if (prevUrl) {
     pokeList(prevUrl);
   }
-}
+};
 
-function nextClick(event) {
+const nextClick = event => {
   if (nextUrl) {
     pokeList(nextUrl);
   }
-}
+};
 
-function listClick(event) {
-  var targetItem = event.target;
+const listClick = event => {
+  const targetItem = event.target;
   if (targetItem.textContent) {
-    var targetId = targetItem.textContent.split('.')[0];
+    const targetId = targetItem.textContent.split('.')[0];
+    showPokemon(targetId);
   }
-  showPokemon(targetId);
-}
+};
 
-for (var listItem of $pokeList) {
+for (const listItem of $pokeList) {
   listItem.addEventListener('click', listClick);
 }
 
@@ -161,7 +161,7 @@ $searchbar.addEventListener('keydown', function (event) {
     }
 
     if ($searchbar.value) {
-      var pokemonSearch = $searchbar.value.toLowerCase();
+      const pokemonSearch = $searchbar.value.toLowerCase();
       showPokemon(pokemonSearch);
     }
   }
